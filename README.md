@@ -49,9 +49,29 @@ With all tasks - **please add comments, utilise tests and submit clear instructi
 
  - Review the `eurocamp_api` database and make notes on the current structure and state of the database. How would you improve it using relational database best practices? We're mainly interested in how you would improve the database theoretically
 
+I do not have a lot of experience in database designs. But from reading about relational databases a couple of enhancements I would do are:
+
+- Insure the data types are inline with the data expected in order to provide consistency and constrains ( currently they are all set to varchar)
+- In the user table I would create a first name and last name column to increase consistency and ensure data is as atomic as possible
+- For readability I woud update the foreign keys in the user table to userId and parc to parcId in bookings and would create the relationship a booking and a parc have to a user.
+    I would imagine the following logic:
+        Assuming a user can only book one parc at a time:
+
+            User relation could have a one to many parcs and one to many bookings
+            Booking can have a one to one relationship with parc
+
+       
+
 ### Task 2 (10 minutes)
 
 - Brief explanation of the latest practices in your respective field of expertise.
+
+
+- During my time at Banked I started working on web components talking to a ruby monolithic which was very light and allowed us to experiment with various ways of collecting/ processing payments (build a checkout journey for the uk and payment links). We used storybook to build and house all design components.
+
+As the company grew and the need to scale grew, the consumer team migrated to using react/nextjs and focusing more on building different customer journeys based on regions/api availability. With different regions came different languages and accessibility requirements. We integrated with Lokalise and ensured we were WCAG commpliant.
+New journeys brought in Xstate for state management. We used sentry, circle ci argo cd and github actions for deployment. All ran in docker containers in GCP. I was more involved in the user experience and front-end side of this.
+
 
 <hr />
 
